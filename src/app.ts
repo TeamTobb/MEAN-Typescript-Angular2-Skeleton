@@ -14,7 +14,7 @@ app.set('view engine', 'jade');
 app.set('view options', { layout: false });
 //app.use(express.static(__dirname + '/public'));
 ​
-// Routes
+// Routes 
 app.get('/', routes.index);
 
 
