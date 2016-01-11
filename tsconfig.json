@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "outDir": "build",
+        "sourceMap": true,
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true
+    },
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
+        "!node_modules/**"
+    ],
+    "compileOnSave": true,
+    "buildOnSave": false,
+    "files": [
+        "./src/app.ts",
+        "./src/extra/express.d.ts",
+        "./src/extra/mime.d.ts",
+        "./src/extra/node.d.ts",
+        "./src/extra/serve-static.d.ts",
+        "./src/routes/index.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
