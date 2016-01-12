@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "ES5",
-        "module": "commonjs",
+        "module": "system",
         "moduleResolution": "node",
         "sourceMap": true,
         "emitDecoratorMetadata": true,
@@ -10,22 +10,18 @@
         "noImplicitAny": false
     },
     "filesGlob": [
-        "./server.ts",
-        "./app/**/*.ts",
-        "./app/**/*.tsx",
-        "!node_modules/**",
-        "!./public/**"
+        "app/*.ts"
     ],
     "compileOnSave": true,
     "buildOnSave": false,
-    "files": [
-        "./server.ts",
-        "./app/controllers/userController.ts",
-        "./app/models/userModel.ts",
-        "./app/routes/indexRoutes.ts",
-        "./app/routes/userRoutes.ts"
-    ],
     "atom": {
         "rewriteTsconfig": true
-    }
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "files": [
+        "app/app.component.ts",
+        "app/boot.ts"
+    ]
 }
