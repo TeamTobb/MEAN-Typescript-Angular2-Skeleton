@@ -22,13 +22,10 @@
     "files": [
         "./server.ts",
         "./app/controllers/documentController.ts",
-        "./app/controllers/userController.ts",
         "./app/models/documentModel.ts",
         "./app/models/messageModel.ts",
-        "./app/models/userModel.ts",
         "./app/routes/documentRoutes.ts",
-        "./app/routes/indexRoutes.ts",
-        "./app/routes/userRoutes.ts"
+        "./app/routes/indexRoutes.ts"
     ],
     "atom": {
         "rewriteTsconfig": true

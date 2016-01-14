@@ -5,15 +5,16 @@
 interface Message {
 	name: string;
 	message: string;
+	senderId: string;
 }
 
 export class UserMessage implements Message {
-	private data: { name: string; message: string };
+	private data: { name: string; message: string, senderId: string };
 
 	constructor(payload: string) {
 		var data = JSON.parse(payload);
 
-		if (!data.name || !data.message) {
+		if (!data.name || !data.message || !data.senderId) {
 			throw new Error('Invalid message payload received: ' + payload);
 		}
 		this.data = data;
@@ -25,5 +26,9 @@ export class UserMessage implements Message {
 
 	get message(): string {
 		return this.data.message;
+	}
+
+	get senderId(): string {
+		return this.data.senderId;
 	}
 }

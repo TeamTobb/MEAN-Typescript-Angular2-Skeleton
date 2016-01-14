@@ -4,57 +4,60 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 import {Injectable, bind} from 'angular2/core';
 import 'rxjs/Rx';
 
-class Data {
-    public hei;
-}
-
 @Component({
   selector: 'my-app',
-  inputs: ['texten'],
-  template:`
-    <h1>{{title}}</h1>
-    <div>
-      <label>name: </label>
-      <div><input (keyup)="testMessage($event)" [(ngModel)]="texten2" placeholder="name"></div>
-      <div>Current text: {{document}}</div>
-    </div>
-    `
+  templateUrl:'views/editor.html'
 })
+
 @Injectable()
 export class AppComponent{
     public socket = new WebSocket('ws://localhost:3001');
-    public title = 'BachelorTest';
-    public texten = "safari";
-    public document = "";
+    public title = 'Bachelor Test';
+    public documentName = "Name of document";
+    public documentText = "This is a standard text";
+    public senderId : string = "" + Math.random;
 
     constructor(public http: Http) {}
 
-    public testMessage = function() {
-        this.socket.send(JSON.stringify({name: "Bob", message: this.texten2}));
+    public changeName = function() {
+        this.socket.send(JSON.stringify({ name: 'name', message: this.documentName, senderId: "hello" }));
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post('./document',
+            JSON.stringify({ documentTitle: this.documentName}),
+            {headers: headers}).subscribe(res => {
+                console.log(res);
+            }
+        );
+    }
+
+    public changeDocument = function() {
+        this.socket.send(JSON.stringify({ name: 'document', message: this.documentText, senderId: this.senderId }));
     }
 
     ngAfterViewInit() {
         this.getDocument();
-        this.testPost();
         this.socket.onmessage = message => {
-            this.document = JSON.parse(message.data).data.message
-        }
+            var parsed = JSON.parse(message.data);
+            if (this.senderId != parsed.data.senderId) {
+                console.log("is not sender");
+                if (parsed.data.name == "name") {
+                    this.documentName = parsed.data.message;
+                }
+                if (parsed.data.name == "document") {
+                    this.documentText = parsed.data.message;
+                }
+              }
+              else {
+                    console.log("is sender");
+              }
+          }
     }
 
     getDocument(){
         this.http.get('./document').map((res: Response) => res.json()).subscribe(res => {
-            this.document = res.text
-        });
-    }
-
-    testPost(){
-        var headers = new Headers();
-        var data = new Data();
-        data.hei = "tekst";
-        headers.append('Content-Type', 'application/json');
-
-        this.http.post('./document', JSON.stringify(data), {headers: headers}).subscribe(res => {
-            console.log(res);
+            this.documentText = res.text;
+            this.documentName = res.title;
         });
     }
 }

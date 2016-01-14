@@ -17,12 +17,8 @@
     "atom": {
         "rewriteTsconfig": true
     },
-    "exclude": [
-        "node_modules"
-    ],
     "files": [
         "app/app.component.ts",
-        "app/boot.ts",
-        "app/boot0.ts"
+        "app/boot.ts"
     ]
 }

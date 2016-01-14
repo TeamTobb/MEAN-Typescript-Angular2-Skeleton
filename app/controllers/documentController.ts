@@ -2,7 +2,7 @@ import express = require("express");
 import mongoose = require("mongoose");
 import documentModel = require("../models/documentModel");
 import IDocument = require('../models/documentModel');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 import repository = documentModel.repository;
 
 export function retrieveDocument(req: express.Request, res: express.Response) {
@@ -10,7 +10,6 @@ export function retrieveDocument(req: express.Request, res: express.Response) {
     var textParam: String = "This is a really long standard text"
     var idParam: String = "2"
     var titleParam: String = "StandardTitle"
-
     repository.findOne({idtest: idParam}, (error, document) => {
         if(error){
             res.send(error);
@@ -26,7 +25,6 @@ export function retrieveDocument(req: express.Request, res: express.Response) {
             } else {
                 res.jsonp(document);
             }
-
         }
     });
 }
@@ -35,12 +33,19 @@ export function updateDocument(req: express.Request, res: express.Response) {
     console.log("documentController.updateDocument()");
     var textParam: String = req.body.hei
     var idParam: String = "2"
-
     repository.findOne({idtest: idParam}, (error, document) => {
         if(error){
             res.send(error);
         } else {
-            res.jsonp(req.body);
+            if(document){
+                repository.update({title: req.body.documentTitle, idtest: idParam}, (error, document2) => {
+                    if(error){
+                        res.send(error);
+                    } else {
+                        res.jsonp(document2);
+                    }
+                });
+            }
         }
     });
 }
@@ -50,13 +55,14 @@ export function testUpdateDocument(updateText: string){
     var idParam: String = "2"
     repository.findOne({idtest: idParam}, (error, document) => {
         if(error){
+            console.log(error);
         } else {
             if(document){
                 repository.update({text: updateText, idtest: idParam}, (error, document2) => {
                     if(error){
-
+                        console.log(error);
                     } else {
-
+                        // no error
                     }
                 });
             }
