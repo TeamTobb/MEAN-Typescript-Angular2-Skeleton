@@ -1,4 +1,4 @@
-Texd
+MEAN Typescript Angular2 Skeleton
 =================
 
 A simple MEAN stack skeleton written in Typescript.
@@ -13,6 +13,7 @@ A simple MEAN stack skeleton written in Typescript.
 
 * Node
 * MongoDB
+* Typescript
 
 ## Running 
 
