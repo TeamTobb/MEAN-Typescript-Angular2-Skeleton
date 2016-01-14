@@ -1,7 +1,7 @@
 Texd
 =================
 
-A simple MEAN stack skeleton written in typescript.
+A simple MEAN stack skeleton written in Typescript.
 
 ### Features
 
@@ -32,7 +32,7 @@ Note: All commands entered need to be performed from within *this directory*.
     tsd install
     ```
 
-4. Before compiling the app you may have to change permissions (default is 744 after tsd install) to the typings directory
+4. Before compiling the app you may have to change permissions (default is 744 after tsd install) to the typings directory.
     ```shell
     chmod -R 774 typings
     ```
