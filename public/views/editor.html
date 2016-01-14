@@ -10,7 +10,7 @@
     </div>
     <br>
     <div id="textAreaWrapper">
-      <textarea id="textArea" (keypress)="changeDocument()" rows="80" cols="150" [(ngModel)]="documentText"></textarea>
+      <textarea id="textArea" (keyup)="changeDocument()" rows="80" cols="150" [(ngModel)]="documentText"></textarea>
     </div>
   </div>
 </div>
