@@ -1,5 +1,5 @@
 {
-  "name": "MEAN Typescript Angular2 Skeleton",
+  "name": "MEAN-Typescript-Angular2-Skeleton",
   "version": "1.0.0",
   "description": "A simple MEAN stack skeleton written in Typescript.",
   "main": "server.js",
