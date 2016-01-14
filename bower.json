@@ -1,9 +1,0 @@
-{
-   "name": "Texd",
-   "version": "0.0.1",
-   "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, Node.js and TypeScript",
-   "dependencies": {
-     "bootstrap": "~3",
-     "angular2": "latest"
-   }
-}
