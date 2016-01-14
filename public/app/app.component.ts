@@ -12,7 +12,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class AppComponent{
     public socket = new WebSocket('ws://localhost:3001');
-    public title = 'Bachelor Test';
+    public title = 'MEAN skeleton with typescript';
     public documentName = "Name of document";
     public documentText = "This is a standard text";
     public senderId : string = "" + Math.random;
@@ -40,7 +40,7 @@ export class AppComponent{
         this.socket.onmessage = message => {
             var parsed = JSON.parse(message.data);
             if (this.senderId != parsed.data.senderId) {
-                console.log("is not sender");
+                console.log("You are not the sender");
                 if (parsed.data.name == "name") {
                     this.documentName = parsed.data.message;
                 }
@@ -49,7 +49,7 @@ export class AppComponent{
                 }
               }
               else {
-                    console.log("is sender");
+                    console.log("You are the sender");
               }
           }
     }
