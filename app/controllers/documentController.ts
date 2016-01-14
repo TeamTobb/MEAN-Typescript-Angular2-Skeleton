@@ -29,7 +29,7 @@ export function retrieveDocument(req: express.Request, res: express.Response) {
     });
 }
 
-export function updateDocument(req: express.Request, res: express.Response) {
+export function updateDocumentTitle(req: express.Request, res: express.Response) {
     console.log("documentController.updateDocument()");
     var textParam: String = req.body.hei
     var idParam: String = "2"
@@ -50,7 +50,7 @@ export function updateDocument(req: express.Request, res: express.Response) {
     });
 }
 
-export function testUpdateDocument(updateText: string){
+export function updateDocumentText(updateText: string){
     console.log("documentController.testUpdateDocument()");
     var idParam: String = "2"
     repository.findOne({idtest: idParam}, (error, document) => {

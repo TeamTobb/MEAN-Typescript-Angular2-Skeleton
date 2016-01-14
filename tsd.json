@@ -5,6 +5,9 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
+    "serve-static/serve-static.d.ts": {
+      "commit": "fc341765ebbb04b7109981a25dced01f488f4d94"
+    },
     "express/express.d.ts": {
       "commit": "faa49cc68025118355b677b936892435b9be7247"
     },

@@ -6,5 +6,5 @@ export function read(req: express.Request, res: express.Response) {
 };
 
 export function update(req: express.Request, res: express.Response) {
-    controller.updateDocument(req, res);
+    controller.updateDocumentTitle(req, res);
 };

@@ -23,7 +23,7 @@ server.on('connection', ws => {
 			var userMessage: models.UserMessage = new models.UserMessage(message);
 			broadcast(JSON.stringify(userMessage));
 			if (userMessage.name == "document") {
-					documentController.testUpdateDocument(userMessage.message);
+					documentController.updateDocumentText(userMessage.message);
 			}
 		} catch (e) {
 			console.error(e.message);
