@@ -13,9 +13,13 @@ import documentRoutes = require('./app/routes/documentRoutes');
 import documentController = require('./app/controllers/documentController');
 import models = require('./app/models/messageModel');
 
-var port: number = process.env.PORT || 3001;
+var wsPort: number = process.env.PORT || 3001;
+var databaseUrl: string = 'hoxmark.xyz';
+var httpPort = 3000;
+
+
 var WebSocketServer = WebSocket.Server;
-var server = new WebSocketServer({ port: port });
+var server = new WebSocketServer({ port: wsPort });
 
 server.on('connection', ws => {
 	ws.on('message', message => {
@@ -37,7 +41,12 @@ function broadcast(data: string): void {
 	});
 };
 
-mongoose.connect('mongodb://localhost/dbTexd');
+if (mongoose.connect('mongodb://'+databaseUrl+'/dbTexd')){
+	console.log("Successfully connected to the database: "+databaseUrl);
+} else {
+	console.log("Not able to connect to the database: "+databaseUrl);
+}
+
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
@@ -51,8 +60,8 @@ app.get('/', routes.index);
 app.get('/document', documentRoutes.read);
 app.post('/document', documentRoutes.update);
 
-app.listen(3000, function(){
-    console.log("Demo Express server listening on port %d", 3000);
+app.listen(httpPort, function(){
+    console.log("Demo Express server listening on port %d", httpPort);
 });
 
 export var App = app;
