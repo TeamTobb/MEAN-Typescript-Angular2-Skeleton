@@ -14,7 +14,7 @@ import documentController = require('./app/controllers/documentController');
 import models = require('./app/models/messageModel');
 
 var wsPort: number = process.env.PORT || 3001;
-var databaseUrl: string = 'hoxmark.xyz';
+var databaseUrl: string = 'localhost';
 var httpPort = 3000;
 
 
