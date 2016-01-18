@@ -10,7 +10,7 @@
         "noImplicitAny": false
     },
     "filesGlob": [
-        "app/*.ts"
+        "controllers/*.ts"
     ],
     "compileOnSave": true,
     "buildOnSave": false,
@@ -18,7 +18,7 @@
         "rewriteTsconfig": true
     },
     "files": [
-        "app/app.component.ts",
-        "app/boot.ts"
+        "controllers/editor.ts",
+        "controllers/index.ts"
     ]
 }
