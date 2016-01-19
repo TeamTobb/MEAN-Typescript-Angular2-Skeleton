@@ -8,9 +8,9 @@ import path = require('path');
 import mongoose = require('mongoose');
 import WebSocket = require('ws');
 
-import routes = require('./app/resources/indexRoutes');
-import documentRoutes = require('./app/resources/documentRoutes');
-import models = require('./app/dao/messageModel');
+import routes = require('./server/resources/indexRoutes');
+import documentRoutes = require('./server/resources/documentRoutes');
+import models = require('./server/dao/messageModel');
 
 var wsPort: number = process.env.PORT || 3001;
 var databaseUrl: string = 'localhost';
