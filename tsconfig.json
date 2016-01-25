@@ -5,9 +5,7 @@
         "moduleResolution": "node",
         "sourceMap": true,
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "removeComments": false,
-        "noImplicitAny": false
+        "experimentalDecorators": true
     },
     "filesGlob": [
         "./server.ts",
@@ -17,15 +15,14 @@
         "!./public/**"
     ],
     "compileOnSave": true,
-    "buildOnSave": false,
+    "atom": {
+        "rewriteTsconfig": true
+    },
     "files": [
         "./server.ts",
         "./server/dao/documentModel.ts",
         "./server/dao/messageModel.ts",
-        "./server/resources/documentRoutes.ts",
-        "./server/resources/indexRoutes.ts"
-    ],
-    "atom": {
-        "rewriteTsconfig": true
-    }
+        "./server/resources/document.ts",
+        "./server/resources/index.ts"
+    ]
 }
