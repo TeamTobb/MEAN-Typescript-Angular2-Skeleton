@@ -17,11 +17,11 @@ A simple MEAN stack skeleton written in Typescript.
 * MongoDB
 * Typescript
 
-## Running 
+## Running
 
 Note: All commands entered need to be performed from within *this directory*.
 
-1. Ensure you have a clean directory to dedicate as to a database (e.g. `C:\database` or `~/database/`). 
+1. Ensure you have a clean directory to dedicate as to a database (e.g. `C:\database` or `~/database/`).
 
 2. From *this repository's directory*, run the following command to launch the MongoDB process.
     ```shell
@@ -43,9 +43,11 @@ Note: All commands entered need to be performed from within *this directory*.
 5. Compile the app with the following command:
     ```shell
     tsc
+    cd public
+    tsc
     ```
 
-7. Launch the Node process to serve the app using the following command:
+7. Launch the Node process to serve the app using the following command from the root folder:
     ```shell
     node server.js
     ```
